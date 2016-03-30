@@ -35,7 +35,7 @@
   <div class="main-content">
     <div class="channels-favs">
 <!--      <div class="favs-online" ng-model="vm.favs">-->
-        <div class="favorite" ng-repeat="stream in vm.streams">
+        <div class="favorite" ng-repeat="stream in vm.streams | orderBy:onlineOrder">
           <h2 ng-bind="stream.name"></h2>
           <img ng-src="{{stream.stream.channel.logo}}">
           <div ng-bind="stream._links.self"></div>

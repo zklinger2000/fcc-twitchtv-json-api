@@ -29,7 +29,18 @@ angular.module('twitchApp', [])
   _.each((vm.favs), function(fav) {
     getStreamByChannel(fav);
   });
-    
+  
+  $scope.onlineOrder = function (item) {
+    if (item.stream === null) {
+      return 1;
+    } else {
+      return 0;
+    }
+
+//    return ['team.name','id];
+  }
+  
+  
   function getStreamByChannel(channel) {
     return twitchService.get(channel).then(function(response) {
       console.info(response.data);
