@@ -5,13 +5,17 @@
   <title>Zack Klinger, Web Developer, Portland, OR</title>
   <!-- load lodash -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.6.1/lodash.js"></script>
-  <!-- load jQuery -->
+<!--
+   load jQuery 
   <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+-->
+  <!-- load AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   <!-- link to Bootstrap js -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
   <!-- link to Bootstrap stylesheet -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!--  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
   <!-- link to Font Awesome stylesheet -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- link to main stylesheet -->
@@ -21,19 +25,26 @@
   <!-- Cabin font -->
   <link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
   <!-- main app file -->
-  <script src="app.js" type="application/javascript"></script>
- 
+  <script src="app.js" type="application/javascript"></script> 
 </head>
-<body ng-app="wikiApp">
-<div class="flex-wrapper">
-  <div class="content-wrapper">
-    <div class="channel-header">
-      <h2 class="channel-title">Free Code Camp</h2>
+<body ng-app="twitchApp">
+<div class="wrapper" ng-controller="MainController as vm">
+  <header>
+    <h1 class="page-header">Twitch.TV Viewer</h1>
+  </header>
+  <div class="main-content">
+    <div class="channels-favs">
+<!--      <div class="favs-online" ng-model="vm.favs">-->
+        <div class="favorite" ng-repeat="stream in vm.streams">
+          <h2 ng-bind="stream.name"></h2>
+          <img ng-src="{{stream.stream.channel.logo}}">
+          <div ng-bind="stream._links.self"></div>
+          <div ng-bind="stream._links.channel"></div>
+          <div>{{ stream.stream ? 'online' : 'offline' }}</div>
+        </div>
+<!--      </div>-->
     </div>
   </div>
 </div>
-<script>
-
-</script>
 </body>
 </html>
