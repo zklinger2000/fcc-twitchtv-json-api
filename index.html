@@ -34,13 +34,15 @@
     <div class="channels-favs">
 <!--      <div class="favs-online" ng-model="vm.favs">-->
       <div class="favorite-wrapper" ng-repeat="stream in vm.streams | orderBy:onlineOrder" ng-class="{online: stream.stream}">
-        <div class="favorite-info">
+        <div class="favorite">
           <div class="profile-display" ng-show="stream.stream">
             <img ng-src="{{stream.stream.channel.logo}}">
+          </div>
+          <div class="profile-header">
+            <h3 ng-bind="stream.name"></h3>
             <a href="{{stream.stream.channel.url}}" target="_blank"><button class="btn btn-primary">Channel</button></a>
           </div>
           <div class="profile-info">
-            <h3 ng-bind="stream.name"></h3>
             <label for="game">Game</label>
             <p id="game" class="info-text" ng-bind="stream.stream.game"></p>
             <label for="viewers">Current Viewers</label>

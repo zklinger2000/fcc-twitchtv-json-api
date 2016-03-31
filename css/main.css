@@ -22,30 +22,28 @@ p {
   color: #111;
   background-color: #eee;
   border-radius: 15px;
-  margin: 10px 0;
+  margin: 10px;
+  padding: 0 5px;
 }
 .online {
   background-color: green;
 }
-.profile-display {
-  margin: 10px;
-  border-radius: 15px 15px 0 0;
-}
 .profile-display img {
-  width: 80px;
+  width: 120px;
   border-radius: 15px;
+  margin-top: 5px;
 }
-.profile-display button {
-/*  margin: 15px 0;*/
+.profile-display, .profile-header, .profile-info, .profile-status {
+  margin: 10px;
 }
-.profile-info, .profile-status {
-  margin: 10px 10px 0;
+.profile-header h3 {
+  margin: 5px 0;
 }
-.profile-info h3 {
-  margin-top: 0px;
+.profile-header a {
+  margin: 10px 0;
 }
 label {
-  margin: 0;
+  margin: 5px 0;
   padding: 0;
 }
 .info-text {
@@ -57,26 +55,29 @@ label {
   -moz-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.22);
   box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.22);
 }
+
+
 /*==========
   Flexbox 
 ===========*/
 
-.favorite-info {
+.favorite {
   display: flex;
   flex-wrap: wrap;
 }
 .profile-display {
   text-align: center;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
+/*  flex-direction: column;*/
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
 }
-.profile-status {
+.profile-header {
   display: flex;
   flex-direction: column;
-  flex: 1;
-/*  justify-content: center;*/
+  justify-content: space-between;
+  flex: 2;
 }
 .text-info {
 /*  flex: 1 0 200px;;*/
@@ -85,5 +86,23 @@ label {
   display: flex;
   flex-direction: column;
   align-self: flex-start;
-  flex: 1 0 200px;
+  flex: 2;
+}
+.profile-status {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+/*  justify-content: center;*/
+}
+.profile-display h3 {
+  align-self: baseline;
+}
+
+/*===============
+  Media Queries
+===============*/
+
+@media screen and (min-width: 768px) {
+
+
 }
