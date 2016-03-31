@@ -6,27 +6,48 @@ body {
   background-color: #111;
 /*  font-size: 1.2em;*/
 }
-/*
-h1, h2, h3 {
-  margin: 0;
-  padding: 0;
+h1, h2, h3, label {
+  font-family: 'Francois One', sans-serif;
 }
-*/
 p {
   font-size: 1.2em;
+  font-family: 'Lato', sans-serif;
 }
-.main-content {
-  margin: 15px;
+.wrapper {
+  max-width: 1024px;
+  margin: auto;
+}
+.btn-primary {
+  background-color: #19736c;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #004641;
+}
+.btn-primary:active {
+  background-color: #001715;
+}
+header {
+/*  margin: 0 25px;*/
+  padding: 0 10px;
+}
+.header-wrapper h1 {
+  text-align: center;
+}
+.count-online {
+  color: #75ac25;
+}
+.count-offline {
+  color: #bc3029;
 }
 .favorite-wrapper {
   color: #111;
-  background-color: #eee;
+  background-color: #bc3029;
   border-radius: 15px;
   margin: 10px;
   padding: 0 5px;
 }
 .online {
-  background-color: green;
+  background-color: #75ac25;
 }
 .profile-display img {
   width: 120px;
@@ -43,24 +64,40 @@ p {
   margin: 10px 0;
 }
 label {
+  font-size: 1.5em;
   margin: 5px 0;
   padding: 0;
+  color: #3e6900;
 }
 .info-text {
-  border-radius: 15px;
-  padding: .5em 1em;
-  background-color: #eee;
-/*  display: block;*/
-  -webkit-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.22);
-  -moz-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.22);
-  box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.22);
+  font-size: 1.3em;
+  color: #142200;
 }
-
+.profile-status h2 {
+  text-align: right;
+}
+.offline {
+  margin-right: 15px;
+  margin-bottom: 20px;
+  color: #730600;
+}
 
 /*==========
   Flexbox 
 ===========*/
-
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.header-wrapper h1, .header-wrapper h2 {
+  align-self: baseline;
+}
+.header-wrapper h1 {
+  flex: 4;
+}
+.header-wrapper h2 {
+  flex: 1;
+}
 .favorite {
   display: flex;
   flex-wrap: wrap;
@@ -94,8 +131,8 @@ label {
   flex: 3;
 /*  justify-content: center;*/
 }
-.profile-display h3 {
-  align-self: baseline;
+.offline {
+  align-self: center;
 }
 
 /*===============
@@ -103,6 +140,15 @@ label {
 ===============*/
 
 @media screen and (min-width: 768px) {
+
+  .profile-header {
+    flex: 1.5;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+
 
 
 }

@@ -18,43 +18,46 @@
 <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
   <!-- link to main stylesheet -->
   <link rel="stylesheet" type="text/css" href="css/main.css" />
-  <!-- PT Sans font -->
-  <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
-  <!-- Cabin font -->
-  <link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
-  <!-- main app file -->
+  <!-- Francois One font -->
+  <link href='https://fonts.googleapis.com/css?family=Francois+One' rel='stylesheet' type='text/css'>  <!-- Cabin font -->
+  <!-- Lato font -->
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>  <!-- main app file -->
   <script src="app.js" type="application/javascript"></script> 
 </head>
 <body ng-app="twitchApp">
 <div class="wrapper" ng-controller="MainController as vm">
   <header>
-    <h1 class="page-header">Twitch.tv</h1>
+    <div class="header-wrapper page-header">
+      <h2>Twitch.tv</h2>
+      <h1>Favorite Channels</h1>
+      <h2>Online: </h2>
+      <h2 class="count-online">{{ (vm.streams | filter:!onlineOrder).length }}</h2>
+      <h2>Offline: </h2>
+      <h2 class="count-offline">{{ (vm.streams | filter:onlineOrder).length }}</h2>
+    </div>
   </header>
-  <div class="main-content">
-    <div class="channels-favs">
-<!--      <div class="favs-online" ng-model="vm.favs">-->
-      <div class="favorite-wrapper" ng-repeat="stream in vm.streams | orderBy:onlineOrder" ng-class="{online: stream.stream}">
-        <div class="favorite">
-          <div class="profile-display" ng-show="stream.stream">
-            <img ng-src="{{stream.stream.channel.logo}}">
-          </div>
-          <div class="profile-header">
-            <h3 ng-bind="stream.name"></h3>
-            <a href="{{stream.stream.channel.url}}" target="_blank"><button class="btn btn-primary">Channel</button></a>
-          </div>
-          <div class="profile-info">
-            <label for="game">Game</label>
-            <p id="game" class="info-text" ng-bind="stream.stream.game"></p>
-            <label for="viewers">Current Viewers</label>
-            <p id="viewers" class="info-text" ng-bind="stream.stream.viewers"></p>
-          </div>
-          <div class="profile-status">
-            <label for="status">Status</label>
-            <p id="status" class="info-text" ng-bind="stream.stream.channel.status"></p>
-          </div>
+  <div class="channels-favs">
+    <div class="favorite-wrapper" ng-repeat="stream in vm.streams | orderBy:onlineOrder" ng-class="{online: stream.stream}">
+      <div class="favorite">
+        <div class="profile-display" ng-show="stream.stream">
+          <img ng-src="{{stream.stream.channel.logo}}">
         </div>
+        <div class="profile-header">
+          <h3 ng-bind="stream.name"></h3>
+          <a href="{{stream.stream.channel.url}}" target="_blank"><button class="btn btn-primary btn-lg">Channel</button></a>
+        </div>
+        <div ng-show="stream.stream" class="profile-info">
+          <label for="game">Game</label>
+          <p id="game" class="info-text" ng-bind="stream.stream.game"></p>
+          <label for="viewers">Current Viewers</label>
+          <p id="viewers" class="info-text" ng-bind="stream.stream.viewers"></p>
+        </div>
+        <div class="profile-status">
+          <label ng-show="stream.stream" for="status">Status</label>
+          <p ng-show="stream.stream" id="status" class="info-text" ng-bind="stream.stream.channel.status"></p>
+        </div>
+        <h2 ng-hide="stream.stream" class="offline">OFFLINE</h2>
       </div>
-<!--      </div>-->
     </div>
   </div>
 </div>
