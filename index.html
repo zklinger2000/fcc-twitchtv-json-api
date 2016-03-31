@@ -5,19 +5,17 @@
   <title>Zack Klinger, Web Developer, Portland, OR</title>
   <!-- load lodash -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.6.1/lodash.js"></script>
-<!--
-   load jQuery 
+  <!-- load jQuery -->
   <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
--->
   <!-- load AngularJS -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   <!-- link to Bootstrap js -->
-<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <!-- link to Bootstrap stylesheet -->
-<!--  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <!-- link to Font Awesome stylesheet -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
   <!-- link to main stylesheet -->
   <link rel="stylesheet" type="text/css" href="css/main.css" />
   <!-- PT Sans font -->
@@ -30,25 +28,27 @@
 <body ng-app="twitchApp">
 <div class="wrapper" ng-controller="MainController as vm">
   <header>
-    <h1 class="page-header">Twitch.TV Viewer</h1>
+    <h1 class="page-header">Twitch.tv</h1>
   </header>
   <div class="main-content">
     <div class="channels-favs">
 <!--      <div class="favs-online" ng-model="vm.favs">-->
       <div class="favorite-wrapper" ng-repeat="stream in vm.streams | orderBy:onlineOrder" ng-class="{online: stream.stream}">
-        <div class="favorite">
-          <div class="profile-image" ng-show="stream.stream">
+        <div class="favorite-info">
+          <div class="profile-display" ng-show="stream.stream">
             <img ng-src="{{stream.stream.channel.logo}}">
+            <a href="{{stream.stream.channel.url}}" target="_blank"><button class="btn btn-primary">Channel</button></a>
           </div>
-          <h2 ng-bind="stream.name"></h2>
           <div class="profile-info">
-            <div>Go to <a href="{{stream.stream.channel.url}}" target="_blank">Channel</a></div>
+            <h3 ng-bind="stream.name"></h3>
             <label for="game">Game</label>
-            <div id="game" ng-bind="stream.stream.game"></div>
-            <label for="status">Status</label>
-            <div id="status" ng-bind="stream.stream.channel.status"></div>
+            <p id="game" class="info-text" ng-bind="stream.stream.game"></p>
             <label for="viewers">Current Viewers</label>
-            <div id="viewers" ng-bind="stream.stream.viewers"></div>
+            <p id="viewers" class="info-text" ng-bind="stream.stream.viewers"></p>
+          </div>
+          <div class="profile-status">
+            <label for="status">Status</label>
+            <p id="status" class="info-text" ng-bind="stream.stream.channel.status"></p>
           </div>
         </div>
       </div>

@@ -4,17 +4,86 @@
 body {
   color: #eee;
   background-color: #111;
+/*  font-size: 1.2em;*/
+}
+/*
+h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+*/
+p {
+  font-size: 1.2em;
+}
+.main-content {
+  margin: 15px;
 }
 .favorite-wrapper {
   color: #111;
   background-color: #eee;
-  border-radius: 50px;
-  padding: 25px;
-  margin: 25px;
-}
-.profile-image img {
-  width: 160px;
+  border-radius: 15px;
+  margin: 10px 0;
 }
 .online {
   background-color: green;
+}
+.profile-display {
+  margin: 10px;
+  border-radius: 15px 15px 0 0;
+}
+.profile-display img {
+  width: 80px;
+  border-radius: 15px;
+}
+.profile-display button {
+/*  margin: 15px 0;*/
+}
+.profile-info, .profile-status {
+  margin: 10px 10px 0;
+}
+.profile-info h3 {
+  margin-top: 0px;
+}
+label {
+  margin: 0;
+  padding: 0;
+}
+.info-text {
+  border-radius: 15px;
+  padding: .5em 1em;
+  background-color: #eee;
+/*  display: block;*/
+  -webkit-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.22);
+  -moz-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.22);
+  box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.22);
+}
+/*==========
+  Flexbox 
+===========*/
+
+.favorite-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+.profile-display {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.profile-status {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+/*  justify-content: center;*/
+}
+.text-info {
+/*  flex: 1 0 200px;;*/
+}
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  flex: 1 0 200px;
 }
