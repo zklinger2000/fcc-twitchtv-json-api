@@ -44,7 +44,8 @@
         </div>
         <div class="profile-header">
           <h3 ng-bind="stream.name"></h3>
-          <a href="{{stream.stream.channel.url}}" target="_blank"><button class="btn btn-primary btn-lg">Channel</button></a>
+          <a ng-show="stream.stream" href="{{stream.stream.channel.url}}" target="_blank"><button class="btn btn-primary btn-lg">Channel</button></a>
+          <a ng-hide="stream.stream" href="{{'https://www.twitch.tv/' + stream._links.channel.slice(38)}}" target="_blank"><button class="btn btn-primary btn-lg">Channel</button></a>
         </div>
         <div ng-show="stream.stream" class="profile-info">
           <label for="game">Game</label>
