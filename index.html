@@ -14,14 +14,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <!-- link to Bootstrap stylesheet -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <!-- link to Font Awesome stylesheet -->
-<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
   <!-- link to main stylesheet -->
-  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <link rel="stylesheet" type="text/css" href="css/main.css"/>
   <!-- Francois One font -->
-  <link href='https://fonts.googleapis.com/css?family=Francois+One' rel='stylesheet' type='text/css'>  <!-- Cabin font -->
+  <link href='https://fonts.googleapis.com/css?family=Francois+One' rel='stylesheet' type='text/css'>
   <!-- Lato font -->
-  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>  <!-- main app file -->
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <script src="app.js" type="application/javascript"></script> 
 </head>
 <body ng-app="twitchApp">
@@ -58,6 +56,15 @@
           <p ng-show="stream.stream" id="status" class="info-text" ng-bind="stream.stream.channel.status"></p>
         </div>
         <h2 ng-hide="stream.stream" class="offline">OFFLINE</h2>
+      </div>
+    </div>
+    <div class="error-wrapper" ng-repeat="error in vm.streams.errors">
+      <div class="error">
+        <div class="profile-header">
+          <h3 ng-bind="error.name"></h3>
+          <p ng-bind="error.message"></p>
+        </div>
+        <h2 ng-hide="stream.stream" class="error-message">ERROR</h2>
       </div>
     </div>
   </div>

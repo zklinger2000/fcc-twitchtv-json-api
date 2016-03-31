@@ -1,10 +1,13 @@
+/*=============
+  Main Styles 
+==============*/
+
 * {
   box-sizing: border-box;
 }
 body {
   color: #eee;
   background-color: #111;
-/*  font-size: 1.2em;*/
 }
 h1, h2, h3, label {
   font-family: 'Francois One', sans-serif;
@@ -27,7 +30,6 @@ p {
   background-color: #001715;
 }
 header {
-/*  margin: 0 25px;*/
   padding: 0 10px;
 }
 .header-wrapper h1 {
@@ -42,6 +44,13 @@ header {
 .favorite-wrapper {
   color: #111;
   background-color: #bc3029;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 0 5px;
+}
+.error-wrapper {
+  color: #111;
+  background-color: #bcb829;
   border-radius: 15px;
   margin: 10px;
   padding: 0 5px;
@@ -81,10 +90,16 @@ label {
   margin-bottom: 20px;
   color: #730600;
 }
+.error-message {
+  margin-right: 15px;
+  margin-top: 25px;
+  color: #737000;
+}
 
 /*==========
   Flexbox 
 ===========*/
+
 .header-wrapper {
   display: flex;
   justify-content: space-between;
@@ -98,14 +113,13 @@ label {
 .header-wrapper h2 {
   flex: 1;
 }
-.favorite {
+.favorite, .error {
   display: flex;
   flex-wrap: wrap;
 }
 .profile-display {
   text-align: center;
   display: flex;
-/*  flex-direction: column;*/
   justify-content: center;
   align-items: flex-start;
   flex: 1;
@@ -115,9 +129,6 @@ label {
   flex-direction: column;
   justify-content: space-between;
   flex: 2;
-}
-.text-info {
-/*  flex: 1 0 200px;;*/
 }
 .profile-info {
   display: flex;
@@ -129,7 +140,6 @@ label {
   display: flex;
   flex-direction: column;
   flex: 3;
-/*  justify-content: center;*/
 }
 .offline {
   align-self: center;
@@ -144,11 +154,5 @@ label {
   .profile-header {
     flex: 1.5;
   }
-
-}
-
-@media screen and (min-width: 1024px) {
-
-
 
 }
